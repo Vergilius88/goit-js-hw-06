@@ -4,7 +4,7 @@ import users from "./users.js";
 
 // Первое задание - получить массив имен всех пользователей
 
-const getUserNames = users.reduce((acc, elem) => [...acc, elem.name], []);
+const getUserNames = users.reduce((vault, elem) => [...vault, elem.name], []);
 
 console.log(getUserNames);
 
@@ -12,7 +12,7 @@ console.log(getUserNames);
 
 const getUsersWithEyeColor = users
   .filter((user) => user.eyeColor === "blue")
-  .reduce((acc, elem) => [...acc, elem.name], []);
+  .reduce((vault, elem) => [...vault, elem.name], []);
 
 console.log(getUsersWithEyeColor);
 
@@ -20,7 +20,7 @@ console.log(getUsersWithEyeColor);
 
 const getUsersWithGender = users
   .filter((user) => user.gender === "male")
-  .reduce((acc, elem) => [...acc, elem.name], []);
+  .reduce((vault, elem) => [...vault, elem.name], []);
 
 console.log(getUsersWithGender);
 
@@ -28,7 +28,7 @@ console.log(getUsersWithGender);
 
 const getInactiveUsers = users
   .filter((user) => user.isActive !== true)
-  .reduce((acc, elem) => [...acc, elem.name], []);
+  .reduce((vault, elem) => [...vault, elem.name], []);
 
 console.log(getInactiveUsers);
 
@@ -52,7 +52,7 @@ console.log(getUsersWithAge(users, 30, 40));
 // Седьмое задание - получить общую сумму баланса (поле balance) всех пользователей.
 
 const calculateTotalBalance = (users) =>
-  users.reduce((acc, valueBalance) => acc + valueBalance.balance, 0);
+  users.reduce((vault, valueBalance) => vault + valueBalance.balance, 0);
 
 console.log(calculateTotalBalance(users));
 
@@ -80,9 +80,8 @@ console.log(getNamesSortedByFriendsCount(users));
 const getSortedUniqueSkills = (users) =>
   users
     .map((user) => user.skills)
-    .reduce((acc, skill) => [...acc, ...skill], [])
+    .reduce((vault, skill) => [...vault, ...skill], [])
     .filter((skill, index, arr) => arr.indexOf(skill))
-    .sort()
-    
+    .sort();
 
 console.log(getSortedUniqueSkills(users));
