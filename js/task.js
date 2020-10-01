@@ -4,33 +4,32 @@ import users from "./users.js";
 
 // Первое задание - получить массив имен всех пользователей
 
-const getUserNames = users.reduce((vault, elem) => [...vault, elem.name], []);
+const getUserNames = (users) => users.map((user) => user.name);
 
-console.log(getUserNames);
+console.log(getUserNames(users));
 
 // Второе задание - получить массив объектов пользователей по цвету глаз (поле eyeColor).
 
-const getUsersWithEyeColor = users
-  .filter((user) => user.eyeColor === "blue")
-  .reduce((vault, elem) => [...vault, elem.name], []);
+const getUsersWithEyeColor = (users, eyeColor) =>
+  users.filter((user) => user.eyeColor === eyeColor).map((names) => names.name);
 
-console.log(getUsersWithEyeColor);
+console.log(getUsersWithEyeColor(users, "green"));
 
 // Третье задание - получить массив имен пользователей по полу (поле gender).
 
-const getUsersWithGender = users
-  .filter((user) => user.gender === "male")
-  .reduce((vault, elem) => [...vault, elem.name], []);
+const getUsersWithGender = (users, genderFeature) =>
+  users
+    .filter((user) => user.gender === genderFeature)
+    .map((names) => names.name);
 
-console.log(getUsersWithGender);
+console.log(getUsersWithGender(users, "male"));
 
 // Четвертое задание - Получить массив только неактивных пользователей (поле isActive).
 
-const getInactiveUsers = users
-  .filter((user) => user.isActive !== true)
-  .reduce((vault, elem) => [...vault, elem.name], []);
+const getInactiveUsers = (users, activity) =>
+  users.filter((user) => user.isActive !== activity).map((names) => names.name);
 
-console.log(getInactiveUsers);
+console.log(getInactiveUsers(users, true));
 
 // Пятое задание - получить пользоваля (не массив) по email (поле email, он уникальный).
 
